@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base target="_top">
+  <style>
+    body { font-family: Arial, sans-serif; padding: 16px; font-size: 13px; }
+    label { display: block; margin-bottom: 6px; font-weight: bold; }
+    select, button { width: 100%; padding: 8px; margin-bottom: 12px; box-sizing: border-box; }
+    button { background: #4a6fa5; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
+    button:hover { background: #3d5c8a; }
+    #status { font-size: 12px; color: #16a34a; }
+  </style>
+</head>
+<body>
+  <p>Allocating <strong><?= name ?></strong> to a team:</p>
+
+  <? if (teams.length === 0) { ?>
+    <p style="color:#b91c1c;">No teams found. Add teams to the "Teams" sheet first.</p>
+  <? } else { ?>
+    <label for="team">Team</label>
+    <select id="team">
+      <? for (var i = 0; i < teams.length; i++) { ?>
+        <option value="<?= teams[i] ?>"><?= teams[i] ?></option>
+      <? } ?>
+    </select>
+    <button onclick="submitAllocation()">Allocate</button>
+  <? } ?>
+
+  <div id="status"></div>
+
+  <script>
+    function submitAllocation() {
+      var team = document.getElementById('team').value;
+      document.getElementById('status').textContent = 'Saving…';
+      google.script.run
+        .withSuccessHandler(function (msg) { document.getElementById('status').textContent = msg; })
+        .withFailureHandler(function (err) { document.getElementById('status').textContent = 'Error: ' + err.message; })
+        .allocateVolunteer(<?= rowNum ?>, team);
+    }
+  </script>
+</body>
+</html>

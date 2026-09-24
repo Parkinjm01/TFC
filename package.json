@@ -1,0 +1,14 @@
+{
+  "name": "tfc-volunteer-automation",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Google Apps Script automation for volunteer registration, follow-up, allocation, and milestone tracking.",
+  "scripts": {
+    "push": "clasp push",
+    "open": "clasp open",
+    "logs": "clasp logs"
+  },
+  "devDependencies": {
+    "@google/clasp": "^2.4.2"
+  }
+}
