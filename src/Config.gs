@@ -4,8 +4,8 @@
  */
 
 // ---- Coordinator / defaults ----
-const DEFAULT_COORDINATOR_EMAIL = 'volunteers@example-charity.org'; // TODO: set this
-const CHARITY_NAME = 'Your Charity';                                // TODO: set this
+const DEFAULT_COORDINATOR_EMAIL = 'parkinjm01@gmail.com';
+const CHARITY_NAME = 'The Foxton';
 const FOLLOW_UP_DAYS = 3; // days after registration (or after a reminder) before the next follow-up is due
 
 // ---- Sheet / tab names ----
